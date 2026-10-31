@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Character Counter</h2>
+
+<textarea id="text" oninput="countCharacters()"></textarea>
+
+<p id="result">Characters: 0</p>
+
+<script>
+function countCharacters() {
+    let text = document.getElementById("text").value;
+
+    document.getElementById("result").innerHTML =
+    "Characters: " + text.length;
+}
+</script>
+
+</body>
+</html>

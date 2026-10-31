@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Registration Form</h2>
+
+<input type="text" id="name" placeholder="Enter Name">
+<input type="email" id="email" placeholder="Enter Email">
+
+<button onclick="validateForm()">Submit</button>
+
+<p id="result"></p>
+
+<script>
+function validateForm() {
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+
+    if (name == "" || email == "") {
+        document.getElementById("result").innerHTML =
+        "Please fill all fields";
+    } else {
+        document.getElementById("result").innerHTML =
+        "Registration Successful!";
+    }
+}
+</script>
+
+</body>
+</html>
