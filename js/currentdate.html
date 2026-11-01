@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current Date</title>
+</head>
+<body>
+
+    <h2>Current Date</h2>
+    <h3 id="date"></h3>
+
+    <button onclick="showDate()">Show Date</button>
+
+    <script>
+        function showDate() {
+            let today = new Date();
+
+            document.getElementById("date").innerHTML =
+            today.toDateString();
+        }
+    </script>
+
+</body>
+</html>
