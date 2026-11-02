@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Filter Array</title>
+</head>
+<body>
+
+    <h2>Even Numbers</h2>
+
+    <button onclick="findEven()">Find Even</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        let numbers = [10, 15, 20, 25, 30, 35, 40];
+
+        function findEven() {
+            let even = numbers.filter(num => num % 2 === 0);
+
+            document.getElementById("result").innerHTML =
+            even.join(", ");
+        }
+    </script>
+
+</body>
+</html>

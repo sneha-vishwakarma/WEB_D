@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Object</title>
+</head>
+<body>
+
+    <h2>Student Details</h2>
+
+    <button onclick="showDetails()">Show Details</button>
+
+    <p id="result"></p>
+
+    <script>
+        let student = {
+            name: "Sneha",
+            course: "B.Tech CSE",
+            semester: 5,
+            college: "Engineering College"
+        };
+
+        function showDetails() {
+            document.getElementById("result").innerHTML =
+            "Name: " + student.name + "<br>" +
+            "Course: " + student.course + "<br>" +
+            "Semester: " + student.semester + "<br>" +
+            "College: " + student.college;
+        }
+    </script>
+
+</body>
+</html>

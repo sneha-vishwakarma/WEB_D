@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reduce Method</title>
+</head>
+<body>
+
+    <h2>Calculate Total</h2>
+
+    <button onclick="calculateTotal()">Calculate</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        let prices = [100, 200, 300, 400];
+
+        function calculateTotal() {
+            let total = prices.reduce((sum, price) => sum + price, 0);
+
+            document.getElementById("result").innerHTML =
+            "Total = " + total;
+        }
+    </script>
+
+</body>
+</html>

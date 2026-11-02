@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Methods</title>
+</head>
+<body>
+
+    <h2>Array Methods</h2>
+
+    <p id="result"></p>
+
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="removeItem()">Remove Item</button>
+
+    <script>
+        let fruits = ["Apple", "Mango", "Banana"];
+
+        function display() {
+            document.getElementById("result").innerHTML =
+            fruits.join(", ");
+        }
+
+        function addItem() {
+            fruits.push("Orange");
+            display();
+        }
+
+        function removeItem() {
+            fruits.pop();
+            display();
+        }
+
+        display();
+    </script>
+
+</body>
+</html>

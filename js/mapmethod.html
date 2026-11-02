@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Map Method</title>
+</head>
+<body>
+
+    <h2>Double Numbers</h2>
+
+    <button onclick="doubleNumbers()">Click Here</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        let numbers = [2, 4, 6, 8, 10];
+
+        function doubleNumbers() {
+            let result = numbers.map(num => num * 2);
+
+            document.getElementById("result").innerHTML =
+            result.join(", ");
+        }
+    </script>
+
+</body>
+</html>
