@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Async Await</title>
+</head>
+<body>
+
+    <h2>Async Await Example</h2>
+
+    <button onclick="showMessage()">Start</button>
+
+    <p id="result"></p>
+
+    <script>
+        function wait() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve("Hello! Data Loaded.");
+                }, 2000);
+            });
+        }
+
+        async function showMessage() {
+            document.getElementById("result").innerHTML = "Loading...";
+
+            let message = await wait();
+
+            document.getElementById("result").innerHTML = message;
+        }
+    </script>
+
+</body>
+</html>
