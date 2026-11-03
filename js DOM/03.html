@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Max Min</title>
+</head>
+<body>
+
+    <h2>Find Maximum and Minimum</h2>
+
+    <button onclick="findValues()">Find</button>
+
+    <p id="result"></p>
+
+    <script>
+        let numbers = [10, 50, 5, 90, 30];
+
+        function findValues() {
+            let max = Math.max(...numbers);
+            let min = Math.min(...numbers);
+
+            document.getElementById("result").innerHTML =
+                "Maximum: " + max + "<br>" +
+                "Minimum: " + min;
+        }
+    </script>
+
+</body>
+</html>
