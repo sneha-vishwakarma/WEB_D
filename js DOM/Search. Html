@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Search</title>
+</head>
+<body>
+
+    <h2>Product Search</h2>
+
+    <input type="text" id="search"
+           placeholder="Search product..."
+           oninput="searchProduct()">
+
+    <ul id="result"></ul>
+
+    <script>
+        let products = [
+            "Laptop",
+            "Mobile",
+            "Keyboard",
+            "Mouse",
+            "Headphones",
+            "Monitor"
+        ];
+
+        function searchProduct() {
+            let value = document.getElementById("search")
+                .value.toLowerCase();
+
+            let filtered = products.filter(product =>
+                product.toLowerCase().includes(value)
+            );
+
+            document.getElementById("result").innerHTML =
+                filtered.map(product => `<li>${product}</li>`).join("");
+        }
+
+        searchProduct();
+    </script>
+
+</body>
+</html>
