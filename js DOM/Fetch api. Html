@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fetch API</title>
+</head>
+<body>
+
+    <h2>User Details</h2>
+
+    <button onclick="getUser()">Get User</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function getUser() {
+
+            document.getElementById("result").innerHTML = "Loading...";
+
+            try {
+                let response = await fetch(
+                    "https://jsonplaceholder.typicode.com/users/1"
+                );
+
+                if (!response.ok) {
+                    throw new Error("Unable to fetch data");
+                }
+
+                let user = await response.json();
+
+                document.getElementById("result").innerHTML =
+                    "Name: " + user.name + "<br>" +
+                    "Email: " + user.email + "<br>" +
+                    "City: " + user.address.city;
+
+            } catch (error) {
+                document.getElementById("result").innerHTML =
+                    error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>
