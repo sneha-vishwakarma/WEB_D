@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Example</title>
+</head>
+<body>
+
+    <h2>Promise Example</h2>
+
+    <button onclick="checkPromise()">Click Here</button>
+
+    <p id="result"></p>
+
+    <script>
+        function checkPromise() {
+
+            let myPromise = new Promise((resolve, reject) => {
+
+                let success = true;
+
+                if (success) {
+                    resolve("Task Completed Successfully!");
+                } else {
+                    reject("Task Failed!");
+                }
+            });
+
+            myPromise
+                .then(message => {
+                    document.getElementById("result").innerHTML = message;
+                })
+                .catch(error => {
+                    document.getElementById("result").innerHTML = error;
+                });
+        }
+    </script>
+
+</body>
+</html>
