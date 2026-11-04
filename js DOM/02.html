@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sorting Numbers</title>
+</head>
+<body>
+
+    <h2>Sort Numbers</h2>
+
+    <button onclick="sortNumbers()">Sort</button>
+
+    <p id="result"></p>
+
+    <script>
+        let numbers = [45, 12, 89, 23, 5, 67];
+
+        function sortNumbers() {
+            let sorted = [...numbers].sort((a, b) => a - b);
+
+            document.getElementById("result").innerHTML =
+                sorted.join(", ");
+        }
+    </script>
+
+</body>
+</html>
