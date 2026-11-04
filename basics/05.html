@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tab Switching</title>
+
+    <style>
+        .content {
+            display: none;
+            padding: 15px;
+            background: lightblue;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>My Website</h2>
+
+    <button onclick="showTab('home')">Home</button>
+    <button onclick="showTab('about')">About</button>
+    <button onclick="showTab('contact')">Contact</button>
+
+    <div id="home" class="content active">
+        Welcome to Home Page
+    </div>
+
+    <div id="about" class="content">
+        About Us Page
+    </div>
+
+    <div id="contact" class="content">
+        Contact Us Page
+    </div>
+
+    <script>
+        function showTab(id) {
+            let tabs = document.querySelectorAll(".content");
+
+            tabs.forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            document.getElementById(id).classList.add("active");
+        }
+    </script>
+
+</body>
+</html>

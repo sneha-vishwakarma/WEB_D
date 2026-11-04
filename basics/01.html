@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Application</title>
+</head>
+<body>
+
+    <h2>JavaScript Quiz</h2>
+
+    <h3 id="question"></h3>
+
+    <div id="options"></div>
+
+    <p id="result"></p>
+
+    <script>
+        let questions = [
+            {
+                question: "Which language runs in browser?",
+                options: ["Java", "JavaScript", "C++"],
+                answer: "JavaScript"
+            },
+            {
+                question: "Which tag is used for heading?",
+                options: ["<p>", "<h1>", "<br>"],
+                answer: "<h1>"
+            }
+        ];
+
+        let index = 0;
+
+        function showQuestion() {
+            let q = questions[index];
+
+            document.getElementById("question").innerHTML =
+                q.question;
+
+            document.getElementById("options").innerHTML =
+                q.options.map(option =>
+                    `<button onclick="checkAnswer('${option}')">${option}</button><br><br>`
+                ).join("");
+        }
+
+        function checkAnswer(selected) {
+            if (selected === questions[index].answer) {
+                document.getElementById("result").innerHTML =
+                    "Correct Answer!";
+            } else {
+                document.getElementById("result").innerHTML =
+                    "Wrong Answer!";
+            }
+
+            index++;
+
+            if (index < questions.length) {
+                setTimeout(showQuestion, 1000);
+            } else {
+                document.getElementById("question").innerHTML =
+                    "Quiz Completed!";
+                document.getElementById("options").innerHTML = "";
+            }
+        }
+
+        showQuestion();
+    </script>
+
+</body>
+</html>

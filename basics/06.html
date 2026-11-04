@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+
+    <h2>Weather Information</h2>
+
+    <input type="text" id="city" placeholder="Enter City">
+
+    <button onclick="getWeather()">Search</button>
+
+    <div id="result"></div>
+
+    <script>
+        async function getWeather() {
+            let city = document.getElementById("city").value.trim();
+
+            if (!city) {
+                document.getElementById("result").innerHTML =
+                    "Please enter a city";
+                return;
+            }
+
+            document.getElementById("result").innerHTML = "Loading...";
+
+            try {
+                let response = await fetch(
+                    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(city)}&count=1`
+                );
+
+                let data = await response.json();
+
+                if (!data.results || data.results.length === 0) {
+                    throw new Error("City not found");
+                }
+
+                let location = data.results[0];
+
+                let weatherResponse = await fetch(
+                    `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m`
+                );
+
+                let weather = await weatherResponse.json();
+
+                document.getElementById("result").innerHTML =
+                    "City: " + location.name + "<br>" +
+                    "Temperature: " +
+                    weather.current.temperature_2m + " °C";
+
+            } catch (error) {
+                document.getElementById("result").innerHTML =
+                    error.message;
+            }
+        }
+    </script>
+
+</body>
+</html>

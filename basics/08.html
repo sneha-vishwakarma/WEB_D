@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Copy Text</title>
+</head>
+<body>
+
+    <h2>Copy Text Example</h2>
+
+    <input type="text" id="text" value="Welcome to JavaScript">
+
+    <button onclick="copyText()">Copy</button>
+
+    <p id="result"></p>
+
+    <script>
+        async function copyText() {
+            let value = document.getElementById("text").value;
+
+            try {
+                await navigator.clipboard.writeText(value);
+
+                document.getElementById("result").innerHTML =
+                    "Text Copied Successfully!";
+            } catch (error) {
+                document.getElementById("result").innerHTML =
+                    "Unable to copy text.";
+            }
+        }
+    </script>
+
+</body>
+</html>

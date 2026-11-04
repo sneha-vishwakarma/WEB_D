@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Preview</title>
+</head>
+<body>
+
+    <h2>Upload Image</h2>
+
+    <input type="file" id="image" accept="image/*"
+           onchange="previewImage()">
+
+    <br><br>
+
+    <img id="preview" width="200">
+
+    <script>
+        function previewImage() {
+            let file = document.getElementById("image").files[0];
+
+            if (file) {
+                let imageURL = URL.createObjectURL(file);
+
+                document.getElementById("preview").src = imageURL;
+            }
+        }
+    </script>
+
+</body>
+</html>
