@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Delegation</title>
+</head>
+<body>
+
+    <h2>Fruit List</h2>
+
+    <ul id="fruits">
+        <li>Apple</li>
+        <li>Mango</li>
+        <li>Banana</li>
+        <li>Orange</li>
+    </ul>
+
+    <p id="result"></p>
+
+    <script>
+        document.getElementById("fruits").addEventListener("click", function(event) {
+
+            if (event.target.tagName === "LI") {
+                document.getElementById("result").innerHTML =
+                    "You selected: " + event.target.textContent;
+            }
+
+        });
+    </script>
+
+</body>
+</html>

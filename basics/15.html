@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Events</title>
+</head>
+<body>
+
+    <h2>Keyboard Event Example</h2>
+
+    <input type="text" id="input" placeholder="Type something">
+
+    <h3 id="result"></h3>
+
+    <script>
+        document.getElementById("input").addEventListener("keyup", function(event) {
+
+            document.getElementById("result").innerHTML =
+                "You typed: " + event.target.value;
+
+        });
+    </script>
+
+</body>
+</html>
