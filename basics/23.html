@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Notes App</title>
+</head>
+<body>
+
+    <h2>My Notes</h2>
+
+    <input type="text" id="note" placeholder="Write a note">
+    <button onclick="addNote()">Add Note</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        function addNote() {
+            let value = document.getElementById("note").value;
+
+            if (value === "") {
+                alert("Please write something!");
+                return;
+            }
+
+            let li = document.createElement("li");
+            li.innerHTML = value;
+
+            let btn = document.createElement("button");
+            btn.innerHTML = "Delete";
+
+            btn.onclick = function() {
+                li.remove();
+            };
+
+            li.appendChild(btn);
+            document.getElementById("list").appendChild(li);
+
+            document.getElementById("note").value = "";
+        }
+    </script>
+
+</body>
+</html>

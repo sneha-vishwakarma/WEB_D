@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Closure Example</title>
+</head>
+<body>
+
+    <h2>Closure Counter</h2>
+
+    <h3 id="count">0</h3>
+
+    <button onclick="increase()">Increase</button>
+
+    <script>
+        function createCounter() {
+
+            let number = 0;
+
+            return function() {
+                number++;
+                return number;
+            };
+        }
+
+        let counter = createCounter();
+
+        function increase() {
+            document.getElementById("count").innerHTML = counter();
+        }
+    </script>
+
+</body>
+</html>

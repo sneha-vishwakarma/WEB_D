@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Class Example</title>
+</head>
+<body>
+
+    <h2>Student Details</h2>
+
+    <button onclick="showStudent()">Show Details</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        class Student {
+
+            constructor(name, branch) {
+                this.name = name;
+                this.branch = branch;
+            }
+
+            display() {
+                return "Name: " + this.name +
+                       "<br>Branch: " + this.branch;
+            }
+        }
+
+        function showStudent() {
+
+            let s1 = new Student("Sneha", "CSE");
+
+            document.getElementById("result").innerHTML =
+                s1.display();
+        }
+    </script>
+
+</body>
+</html>

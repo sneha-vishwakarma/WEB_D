@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inheritance</title>
+</head>
+<body>
+
+    <h2>JavaScript Inheritance</h2>
+
+    <button onclick="show()">Click Here</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        class Animal {
+
+            eat() {
+                return "Animal is eating";
+            }
+        }
+
+        class Dog extends Animal {
+
+            bark() {
+                return "Dog is barking";
+            }
+        }
+
+        function show() {
+
+            let d = new Dog();
+
+            document.getElementById("result").innerHTML =
+                d.eat() + "<br>" + d.bark();
+        }
+    </script>
+
+</body>
+</html>

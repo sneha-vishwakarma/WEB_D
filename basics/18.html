@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Callback Example</title>
+</head>
+<body>
+
+    <h2>Callback Function</h2>
+
+    <button onclick="start()">Click Me</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function display(message) {
+            document.getElementById("result").innerHTML = message;
+        }
+
+        function calculate(callback) {
+            let a = 10;
+            let b = 20;
+
+            let sum = a + b;
+
+            callback("Addition = " + sum);
+        }
+
+        function start() {
+            calculate(display);
+        }
+    </script>
+
+</body>
+</html>

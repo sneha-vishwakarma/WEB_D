@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Promise Example</title>
+</head>
+<body>
+
+    <h2>Promise Chaining</h2>
+
+    <button onclick="start()">Start</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function getNumber() {
+
+            return new Promise(function(resolve) {
+                setTimeout(function() {
+                    resolve(10);
+                }, 1000);
+            });
+        }
+
+        function start() {
+
+            getNumber()
+
+            .then(function(number) {
+                return number * 2;
+            })
+
+            .then(function(result) {
+                document.getElementById("result").innerHTML =
+                    "Final Result: " + result;
+            });
+        }
+    </script>
+
+</body>
+</html>
