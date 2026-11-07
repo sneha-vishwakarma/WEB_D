@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Calculator</title>
+</head>
+<body>
+
+    <h2>Student Marks Calculator</h2>
+
+    <input type="number" id="m1" placeholder="Subject 1 Marks">
+    <input type="number" id="m2" placeholder="Subject 2 Marks">
+    <input type="number" id="m3" placeholder="Subject 3 Marks">
+
+    <button onclick="calculate()">Calculate Result</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculate() {
+
+            let marks = [
+                Number(document.getElementById("m1").value),
+                Number(document.getElementById("m2").value),
+                Number(document.getElementById("m3").value)
+            ];
+
+            if (marks.some(mark => mark < 0 || mark > 100)) {
+                alert("Enter marks between 0 and 100");
+                return;
+            }
+
+            let total = 0;
+
+            for (let i = 0; i < marks.length; i++) {
+                total += marks[i];
+            }
+
+            let percentage = total / marks.length;
+
+            let grade;
+
+            if (percentage >= 80) {
+                grade = "A Grade";
+            }
+            else if (percentage >= 60) {
+                grade = "B Grade";
+            }
+            else if (percentage >= 40) {
+                grade = "C Grade";
+            }
+            else {
+                grade = "Needs Improvement";
+            }
+
+            document.getElementById("result").innerHTML =
+                "Total Marks: " + total + "/300" +
+                "<br>Percentage: " + percentage.toFixed(2) + "%" +
+                "<br>Grade: " + grade;
+        }
+    </script>
+
+</body>
+</html>

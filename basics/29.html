@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stopwatch</title>
+</head>
+<body>
+
+    <h2>Stopwatch</h2>
+
+    <h1 id="time">0</h1>
+
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
+    <button onclick="lap()">Lap</button>
+
+    <h3>Lap Times</h3>
+
+    <ul id="laps"></ul>
+
+    <script>
+        let seconds = 0;
+        let timer = null;
+
+        function updateTime() {
+            document.getElementById("time").innerHTML = seconds;
+        }
+
+        function start() {
+
+            if (timer !== null) return;
+
+            timer = setInterval(function() {
+                seconds++;
+                updateTime();
+            }, 1000);
+        }
+
+        function stop() {
+            clearInterval(timer);
+            timer = null;
+        }
+
+        function reset() {
+            stop();
+            seconds = 0;
+            updateTime();
+            document.getElementById("laps").innerHTML = "";
+        }
+
+        function lap() {
+
+            let li = document.createElement("li");
+
+            li.innerHTML = seconds + " seconds";
+
+            document.getElementById("laps").appendChild(li);
+        }
+    </script>
+
+</body>
+</html>

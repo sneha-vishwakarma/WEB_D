@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quote Generator</title>
+</head>
+<body>
+
+    <h2>Daily Motivation</h2>
+
+    <h3 id="quote">Click the button for a quote!</h3>
+
+    <button onclick="generateQuote()">New Quote</button>
+
+    <script>
+        let quotes = [
+            "Believe in yourself.",
+            "Never stop learning.",
+            "Small steps lead to big success.",
+            "Practice makes progress.",
+            "Every day is a new opportunity."
+        ];
+
+        function generateQuote() {
+
+            let index = Math.floor(Math.random() * quotes.length);
+
+            document.getElementById("quote").innerHTML =
+                quotes[index];
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tip Calculator</title>
+</head>
+<body>
+
+    <h2>Tip Calculator</h2>
+
+    <input type="number" id="bill" placeholder="Enter bill amount">
+
+    <select id="tip">
+        <option value="5">5%</option>
+        <option value="10">10%</option>
+        <option value="15">15%</option>
+        <option value="20">20%</option>
+    </select>
+
+    <button onclick="calculate()">Calculate</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculate() {
+
+            let bill = Number(document.getElementById("bill").value);
+            let percentage = Number(document.getElementById("tip").value);
+
+            if (bill <= 0) {
+                alert("Enter a valid bill amount");
+                return;
+            }
+
+            let tipAmount = bill * percentage / 100;
+            let total = bill + tipAmount;
+
+            document.getElementById("result").innerHTML =
+                "Tip: ₹" + tipAmount.toFixed(2) +
+                "<br>Total Bill: ₹" + total.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>
