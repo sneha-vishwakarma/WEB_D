@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management</title>
+</head>
+<body>
+
+    <h2>Student Management System</h2>
+
+    <input type="text" id="name" placeholder="Student Name">
+    <input type="number" id="marks" placeholder="Marks">
+
+    <button onclick="addStudent()">Add Student</button>
+
+    <h3>Student Records</h3>
+
+    <div id="result"></div>
+
+    <script>
+        let students = [];
+
+        function addStudent() {
+
+            let name = document.getElementById("name").value.trim();
+            let marks = Number(document.getElementById("marks").value);
+
+            if (name === "" || marks < 0 || marks > 100) {
+                alert("Enter valid student details");
+                return;
+            }
+
+            students.push({
+                name: name,
+                marks: marks
+            });
+
+            displayStudents();
+
+            document.getElementById("name").value = "";
+            document.getElementById("marks").value = "";
+        }
+
+        function displayStudents() {
+
+            let output = "";
+
+            students.forEach(function(student, index) {
+
+                output += student.name + " - " + student.marks;
+
+                output += " <button onclick='deleteStudent(" +
+                          index + ")'>Delete</button><br><br>";
+            });
+
+            document.getElementById("result").innerHTML = output;
+        }
+
+        function deleteStudent(index) {
+
+            students.splice(index, 1);
+
+            displayStudents();
+        }
+    </script>
+
+</body>
+</html>
