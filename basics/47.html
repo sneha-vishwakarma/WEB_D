@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Show Hide Text</title>
+</head>
+<body>
+
+    <h2>Show and Hide Example</h2>
+
+    <p id="message">
+        Welcome! You are learning JavaScript.
+    </p>
+
+    <button onclick="showText()">Show</button>
+
+    <button onclick="hideText()">Hide</button>
+
+    <script>
+        function showText() {
+
+            document.getElementById("message").style.display =
+                "block";
+        }
+
+        function hideText() {
+
+            document.getElementById("message").style.display =
+                "none";
+        }
+    </script>
+
+</body>
+</html>
