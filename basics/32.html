@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analog Clock</title>
+    <style>
+        .clock {
+            width: 220px;
+            height: 220px;
+            border: 8px solid black;
+            border-radius: 50%;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        .hand {
+            position: absolute;
+            bottom: 50%;
+            left: 50%;
+            transform-origin: bottom;
+            border-radius: 5px;
+        }
+
+        .hour {
+            width: 6px;
+            height: 55px;
+            background: black;
+        }
+
+        .minute {
+            width: 4px;
+            height: 80px;
+            background: blue;
+        }
+
+        .second {
+            width: 2px;
+            height: 90px;
+            background: red;
+        }
+
+        .center {
+            width: 12px;
+            height: 12px;
+            background: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+
+<h2 align="center">Analog Clock</h2>
+
+<div class="clock">
+    <div class="hand hour" id="hour"></div>
+    <div class="hand minute" id="minute"></div>
+    <div class="hand second" id="second"></div>
+    <div class="center"></div>
+</div>
+
+<script>
+function updateClock() {
+    let now = new Date();
+
+    let h = now.getHours() % 12;
+    let m = now.getMinutes();
+    let s = now.getSeconds();
+
+    document.getElementById("hour").style.transform =
+        `translateX(-50%) rotate(${h * 30 + m * 0.5}deg)`;
+
+    document.getElementById("minute").style.transform =
+        `translateX(-50%) rotate(${m * 6}deg)`;
+
+    document.getElementById("second").style.transform =
+        `translateX(-50%) rotate(${s * 6}deg)`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+</script>
+
+</body>
+</html>

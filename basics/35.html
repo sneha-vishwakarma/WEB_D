@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emoji Generator</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            margin-top: 80px;
+        }
+
+        #emoji {
+            font-size: 80px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Random Emoji Generator</h2>
+
+<p id="emoji">😊</p>
+
+<button onclick="generateEmoji()">Generate Emoji</button>
+
+<script>
+let emojis = ["😀", "😂", "😍", "🥳", "😎", "🤩", "🐱", "🌸", "❤️", "🚀"];
+
+function generateEmoji() {
+    let random = Math.floor(Math.random() * emojis.length);
+
+    document.getElementById("emoji").innerHTML = emojis[random];
+}
+</script>
+
+</body>
+</html>

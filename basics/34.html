@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Font Size Controller</title>
+</head>
+<body>
+
+<h2>Font Size Controller</h2>
+
+<p id="text">
+    Welcome to JavaScript! You can change the size of this text.
+</p>
+
+<button onclick="increaseSize()">Increase +</button>
+<button onclick="decreaseSize()">Decrease -</button>
+<button onclick="resetSize()">Reset</button>
+
+<script>
+let size = 18;
+
+function increaseSize() {
+    if (size < 40) {
+        size += 2;
+    }
+    document.getElementById("text").style.fontSize = size + "px";
+}
+
+function decreaseSize() {
+    if (size > 10) {
+        size -= 2;
+    }
+    document.getElementById("text").style.fontSize = size + "px";
+}
+
+function resetSize() {
+    size = 18;
+    document.getElementById("text").style.fontSize = size + "px";
+}
+</script>
+
+</body>
+</html>
