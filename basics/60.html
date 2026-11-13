@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Progress Bar</title>
+
+    <style>
+        .container {
+            width: 300px;
+            background: lightgray;
+            border-radius: 10px;
+        }
+
+        #bar {
+            width: 0%;
+            height: 25px;
+            background: green;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Progress Bar</h2>
+
+    <div class="container">
+        <div id="bar"></div>
+    </div>
+
+    <h3 id="percentage">0%</h3>
+
+    <button onclick="increase()">Increase</button>
+    <button onclick="reset()">Reset</button>
+
+    <script>
+        let progress = 0;
+
+        function increase() {
+
+            if (progress < 100) {
+                progress += 10;
+            }
+
+            document.getElementById("bar").style.width =
+                progress + "%";
+
+            document.getElementById("percentage").innerHTML =
+                progress + "%";
+        }
+
+        function reset() {
+
+            progress = 0;
+
+            document.getElementById("bar").style.width = "0%";
+
+            document.getElementById("percentage").innerHTML = "0%";
+        }
+    </script>
+
+</body>
+</html>

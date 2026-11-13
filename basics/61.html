@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weight Converter</title>
+</head>
+<body>
+
+    <h2>Kilogram to Gram Converter</h2>
+
+    <input type="number" id="kg" placeholder="Enter kilograms">
+
+    <button onclick="convert()">Convert</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function convert() {
+
+            let kg = document.getElementById("kg").value;
+
+            if (kg.trim() === "" || Number(kg) < 0) {
+                alert("Enter a valid weight");
+                return;
+            }
+
+            let grams = Number(kg) * 1000;
+
+            document.getElementById("result").innerHTML =
+                "Weight in Grams: " + grams + " g";
+        }
+    </script>
+
+</body>
+</html>

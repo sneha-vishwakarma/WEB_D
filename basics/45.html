@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Largest Number</title>
+</head>
+<body>
+
+    <h2>Find Largest Number</h2>
+
+    <input type="text" id="numbers"
+           placeholder="Example: 10, 20, 5, 40">
+
+    <button onclick="findLargest()">Find Largest</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function findLargest() {
+
+            let input = document.getElementById("numbers").value;
+
+            let arr = input.split(",").map(Number);
+
+            if (input.trim() === "" ||
+                arr.some(n => !Number.isFinite(n))) {
+                document.getElementById("result").innerHTML =
+                    "Please enter valid numbers";
+                return;
+            }
+
+            let largest = arr[0];
+
+            for (let i = 1; i < arr.length; i++) {
+
+                if (arr[i] > largest) {
+                    largest = arr[i];
+                }
+            }
+
+            document.getElementById("result").innerHTML =
+                "Largest Number: " + largest;
+        }
+    </script>
+
+</body>
+</html>

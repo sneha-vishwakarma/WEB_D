@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Color Generator</title>
+</head>
+<body>
+
+    <h2>Random Color Generator</h2>
+
+    <button onclick="generateColor()">Generate Color</button>
+
+    <h3 id="result">Color Code: #FFFFFF</h3>
+
+    <script>
+        function generateColor() {
+
+            let color = "#" + Math.floor(
+                Math.random() * 16777215
+            ).toString(16).padStart(6, "0");
+
+            document.body.style.backgroundColor = color;
+
+            document.getElementById("result").innerHTML =
+                "Color Code: " + color;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+</head>
+<body>
+
+    <h2>Student Grade Calculator</h2>
+
+    <input type="number" id="sub1" placeholder="Subject 1">
+    <input type="number" id="sub2" placeholder="Subject 2">
+    <input type="number" id="sub3" placeholder="Subject 3">
+    <input type="number" id="sub4" placeholder="Subject 4">
+    <input type="number" id="sub5" placeholder="Subject 5">
+
+    <br><br>
+
+    <button onclick="calculateGrade()">Calculate Grade</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function calculateGrade() {
+
+            let marks = [
+                "sub1", "sub2", "sub3", "sub4", "sub5"
+            ].map(id => document.getElementById(id).value);
+
+            if (marks.some(mark => mark.trim() === "")) {
+                alert("Enter marks in all subjects");
+                return;
+            }
+
+            marks = marks.map(Number);
+
+            if (marks.some(mark => mark < 0 || mark > 100)) {
+                alert("Marks must be between 0 and 100");
+                return;
+            }
+
+            let total = marks.reduce((sum, mark) => sum + mark, 0);
+
+            let percentage = total / 5;
+
+            let grade;
+
+            if (percentage >= 90) {
+                grade = "A+";
+            }
+            else if (percentage >= 75) {
+                grade = "A";
+            }
+            else if (percentage >= 60) {
+                grade = "B";
+            }
+            else if (percentage >= 40) {
+                grade = "C";
+            }
+            else {
+                grade = "Fail";
+            }
+
+            document.getElementById("result").innerHTML =
+                "Total Marks: " + total + "/500" +
+                "<br>Percentage: " + percentage + "%" +
+                "<br>Grade: " + grade;
+        }
+    </script>
+
+</body>
+</html>
