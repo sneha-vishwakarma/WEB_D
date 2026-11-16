@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Show Hide</title>
+</head>
+<body>
+
+    <h2>Password Show/Hide</h2>
+
+    <input type="password" id="pass" placeholder="Enter Password">
+
+    <button onclick="showPassword()">Show Password</button>
+
+    <script>
+        function showPassword() {
+            let p = document.getElementById("pass");
+
+            if (p.type == "password") {
+                p.type = "text";
+            }
+            else {
+                p.type = "password";
+            }
+        }
+    </script>
+
+</body>
+</html>
