@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Color Generator</title>
+</head>
+<body>
+
+<h2>Random Color Generator</h2>
+
+<button onclick="generateColor()">Generate Color</button>
+
+<h3 id="colorCode"></h3>
+
+<script>
+function generateColor() {
+
+    let letters = "0123456789ABCDEF";
+
+    let color = "#";
+
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+
+    document.body.style.backgroundColor = color;
+
+    document.getElementById("colorCode").innerHTML =
+    "Color Code: " + color;
+}
+</script>
+
+</body>
+</html>

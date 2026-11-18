@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown Timer</title>
+</head>
+<body>
+
+<h2>Countdown Timer</h2>
+
+<input type="number" id="seconds" placeholder="Enter Seconds">
+
+<button onclick="startTimer()">Start Timer</button>
+
+<h1 id="timer">00</h1>
+
+<script>
+let interval;
+
+function startTimer() {
+
+    clearInterval(interval);
+
+    let time = Number(document.getElementById("seconds").value);
+
+    if (time <= 0 || !Number.isInteger(time)) {
+        document.getElementById("timer").innerHTML =
+        "Enter Valid Seconds";
+        return;
+    }
+
+    document.getElementById("timer").innerHTML = time;
+
+    interval = setInterval(function() {
+
+        time--;
+
+        document.getElementById("timer").innerHTML = time;
+
+        if (time <= 0) {
+            clearInterval(interval);
+            document.getElementById("timer").innerHTML =
+            "Time Over!";
+        }
+
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
