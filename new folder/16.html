@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Expense Splitter</title>
+</head>
+<body>
+
+    <h2>Group Expense Splitter</h2>
+
+    <input type="number" id="expense" placeholder="Total Expense">
+
+    <input type="number" id="people" placeholder="Number of People">
+
+    <button onclick="splitExpense()">Split Bill</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function splitExpense() {
+
+            let expense = Number(document.getElementById("expense").value);
+
+            let people = Number(document.getElementById("people").value);
+
+            if (expense <= 0 || !Number.isInteger(people) || people <= 0) {
+                alert("Enter valid values");
+                return;
+            }
+
+            let share = expense / people;
+
+            document.getElementById("result").innerHTML =
+                "Total Expense: ₹" + expense +
+                "<br>People: " + people +
+                "<br>Each Person Pays: ₹" + share.toFixed(2);
+        }
+    </script>
+
+</body>
+</html>

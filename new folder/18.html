@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fibonacci Generator</title>
+</head>
+<body>
+
+    <h2>Fibonacci Series Generator</h2>
+
+    <input type="number" id="count" placeholder="Enter number of terms">
+
+    <button onclick="generate()">Generate</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function generate() {
+
+            let n = Number(document.getElementById("count").value);
+
+            if (!Number.isInteger(n) || n < 1 || n > 50) {
+                alert("Enter a number between 1 and 50");
+                return;
+            }
+
+            let a = 0;
+            let b = 1;
+
+            let output = "";
+
+            for (let i = 0; i < n; i++) {
+
+                output += a + " ";
+
+                let next = a + b;
+
+                a = b;
+                b = next;
+            }
+
+            document.getElementById("result").innerHTML =
+                "Fibonacci Series:<br>" + output;
+        }
+    </script>
+
+</body>
+</html>

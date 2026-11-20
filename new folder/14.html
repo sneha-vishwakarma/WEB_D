@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz Application</title>
+</head>
+<body>
+
+    <h2>JavaScript Quiz</h2>
+
+    <h3 id="question"></h3>
+
+    <div id="options"></div>
+
+    <h3 id="result"></h3>
+
+    <script>
+        let questions = [
+            {
+                q: "Which language is used for web development?",
+                options: ["HTML", "Java", "C++", "Python"],
+                answer: "HTML"
+            },
+            {
+                q: "Which keyword declares a variable?",
+                options: ["print", "let", "display", "write"],
+                answer: "let"
+            },
+            {
+                q: "Which symbol is used for comments in JavaScript?",
+                options: ["##", "//", "<!--", "**"],
+                answer: "//"
+            }
+        ];
+
+        let index = 0;
+        let score = 0;
+
+        function showQuestion() {
+
+            if (index >= questions.length) {
+                document.getElementById("question").innerHTML =
+                    "Quiz Completed!";
+
+                document.getElementById("options").innerHTML = "";
+
+                document.getElementById("result").innerHTML =
+                    "Your Score: " + score + "/" + questions.length;
+
+                return;
+            }
+
+            let q = questions[index];
+
+            document.getElementById("question").innerHTML = q.q;
+
+            let output = "";
+
+            q.options.forEach(function(option) {
+                output += `<button onclick="checkAnswer('${option}')">
+                           ${option}</button><br><br>`;
+            });
+
+            document.getElementById("options").innerHTML = output;
+        }
+
+        function checkAnswer(choice) {
+
+            if (choice === questions[index].answer) {
+                score++;
+            }
+
+            index++;
+            showQuestion();
+        }
+
+        showQuestion();
+    </script>
+
+</body>
+</html>
