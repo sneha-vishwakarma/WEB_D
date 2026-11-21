@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array Pagination</title>
+</head>
+<body>
+
+    <h2>Student List</h2>
+
+    <ul id="list"></ul>
+
+    <button onclick="previous()">Previous</button>
+    <button onclick="next()">Next</button>
+
+    <p id="page"></p>
+
+    <script>
+        let students = [
+            "Aman", "Riya", "Sneha", "Rahul",
+            "Priya", "Karan", "Neha", "Arjun"
+        ];
+
+        let currentPage = 0;
+        let perPage = 3;
+
+        function showStudents() {
+            let start = currentPage * perPage;
+            let end = start + perPage;
+
+            let data = students.slice(start, end);
+
+            document.getElementById("list").innerHTML =
+                data.map(name => "<li>" + name + "</li>").join("");
+
+            document.getElementById("page").innerText =
+                "Page " + (currentPage + 1);
+        }
+
+        function next() {
+            if ((currentPage + 1) * perPage < students.length) {
+                currentPage++;
+                showStudents();
+            }
+        }
+
+        function previous() {
+            if (currentPage > 0) {
+                currentPage--;
+                showStudents();
+            }
+        }
+
+        showStudents();
+    </script>
+
+</body>
+</html>

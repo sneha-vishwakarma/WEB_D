@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Typing Speed Test</title>
+</head>
+<body>
+    <h2>Typing Speed Test</h2>
+
+    <p id="sentence">JavaScript makes websites interactive.</p>
+
+    <textarea id="typing" placeholder="Start typing here..."
+    oninput="startTest()"></textarea>
+
+    <h3 id="timer">Time: 30 seconds</h3>
+    <h3 id="result"></h3>
+
+    <script>
+        let time = 30;
+        let started = false;
+        let interval;
+
+        function startTest() {
+            if (started) return;
+
+            started = true;
+
+            interval = setInterval(function() {
+                time--;
+                document.getElementById("timer").innerText =
+                    "Time: " + time + " seconds";
+
+                if (time === 0) {
+                    clearInterval(interval);
+
+                    let text = document.getElementById("typing").value;
+                    let words = text.trim().split(/\s+/);
+
+                    let count = text.trim() === "" ? 0 : words.length;
+
+                    document.getElementById("result").innerText =
+                        "You typed " + count + " words!";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>

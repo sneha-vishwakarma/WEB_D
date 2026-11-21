@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal Popup</title>
+
+    <style>
+        #popup {
+            display: none;
+            background-color: lightblue;
+            padding: 25px;
+            width: 250px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Modal Popup Example</h2>
+
+    <button onclick="openPopup()">Open Popup</button>
+
+    <div id="popup">
+        <h3>Hello!</h3>
+        <p>This is a popup message.</p>
+
+        <button onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
